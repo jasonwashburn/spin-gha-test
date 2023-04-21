@@ -19,6 +19,9 @@ jobs:
           toolchain: 1.66
           targets: wasm32-wasi, wasm32-unknown-unknown
 
+      - name: NPM Install
+        run: npm install
+
       # TypeScript/JavaScript build requires the js2wasm plugin
       - name: Install Spin
         uses: fermyon/actions/spin/setup@v1
