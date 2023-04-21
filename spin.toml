@@ -1,14 +1,16 @@
 spin_manifest_version = "1"
 authors = ["Jason Washburn <jason.washburn@gmail.com>"]
-description = "Testing Github Actions For Python"
-name = "python-gha-test"
+description = ""
+name = "go-gha-test"
 trigger = { type = "http", base = "/" }
 version = "0.1.0"
 
 [[component]]
-id = "python-gha-test"
-source = "app.wasm"
+id = "go-gha-test"
+source = "main.wasm"
+allowed_http_hosts = []
 [component.trigger]
 route = "/..."
 [component.build]
-command = "spin py2wasm app -o app.wasm"
+command = "tinygo build -target=wasi -gc=leaking -no-debug -o main.wasm main.go"
+watch = ["**/*.go", "go.mod"]
