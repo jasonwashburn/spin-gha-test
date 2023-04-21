@@ -18,8 +18,7 @@ jobs:
         with:
           toolchain: 1.66
           targets: 
-            - wasm32-wasi
-            - wasm32-unknown-unknown
+            - wasm32-wasi, wasm32-unknown-unknown
 
       # TypeScript/JavaScript build requires the js2wasm plugin
       - name: Install Spin
