@@ -1,2 +1,4 @@
-main.wasm
+node_modules
+dist
+target
 .spin/
