@@ -1,15 +1,14 @@
 spin_manifest_version = "1"
 authors = ["Jason Washburn <jason.washburn@gmail.com>"]
 description = ""
-name = "ts-gha-test"
+name = "python-gha-test"
 trigger = { type = "http", base = "/" }
 version = "0.1.0"
 
 [[component]]
-id = "ts-gha-test"
-source = "target/spin-http-js.wasm"
-exclude_files = ["**/node_modules"]
+id = "python-gha-test"
+source = "app.wasm"
 [component.trigger]
 route = "/..."
 [component.build]
-command = "npm run build"
+command = "spin py2wasm app -o app.wasm"

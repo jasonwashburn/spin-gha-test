@@ -13,20 +13,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Install Rust
-        uses: dtolnay/rust-toolchain@stable
-        with:
-          toolchain: 1.66
-          targets: wasm32-wasi
-
       # TypeScript/JavaScript build requires the js2wasm plugin
       - name: Install Spin
         uses: fermyon/actions/spin/setup@v1
         with:
-          plugins: js2wasm
-
-      - name: Run npm install
-        run: npm install
+          plugins: py2wasm
 
       - name: Build and deploy
         uses: fermyon/actions/spin/deploy@v1
