@@ -19,18 +19,11 @@ jobs:
           toolchain: 1.66
           targets: wasm32-wasi
 
-      - name: "Install Go"
-        uses: actions/setup-go@v3
-        with:
-          go-version: "1.20"
-
-      - name: "Install TinyGo"
-        uses: rajatjindal/setup-actions/tinygo@v0.0.1
-        with:
-          version: v0.27.0
-
+      # TypeScript/JavaScript build requires the js2wasm plugin
       - name: Install Spin
         uses: fermyon/actions/spin/setup@v1
+        with:
+          plugins: js2wasm
 
       - name: Build and deploy
         uses: fermyon/actions/spin/deploy@v1
